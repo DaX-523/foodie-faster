@@ -25,6 +25,7 @@
     "@types/react": "^18.2.20",
     "@types/react-dom": "^18.2.7",
     "css-loader": "^6.8.1",
+    "eslint-plugin-react": "^7.33.2",
     "html-webpack-plugin": "^5.5.3",
     "mini-css-extract-plugin": "^2.7.6",
     "parcel": "^2.9.3",
