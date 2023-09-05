@@ -1,6 +1,6 @@
 .img {
   width: 150px;
-  height: 120px;;
+  height: 120px;
 }
 
 .nav-bar {
@@ -27,8 +27,24 @@
 }
 
 .filter {
+  display: flex;
   margin: 8px;
   padding: 6px;
+  gap: 10px;
+}
+
+.shimmer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 4px;
+}
+
+.shimmer-card {
+  background-color: #f0f0f0;
+  width: 300px;
+  height: 400px;
+  margin: 4px;
 }
 
 .card-container {
@@ -36,6 +52,7 @@
   width: 300px;
   margin: 6px;
 }
+
 .card-container:hover {
   border: 1px solid black;
   cursor: pointer;

@@ -1,4 +1,4 @@
-import { LOGO_URL } from "../../utils/urls";
+import { LOGO_URL } from '../utils/urls';
 
 const HeaderComponent = () => {
   return (
