@@ -1,12 +1,12 @@
 import HeaderComponent from './components/Header';
-import BodyComponent from './components/Body';
+import { Outlet } from 'react-router-dom';
 
 // Top level component
 export const AppComponent = () => {
   return (
     <div className="home">
       <HeaderComponent />
-      <BodyComponent />
+      <Outlet />
     </div>
   );
 };
