@@ -8,4 +8,5 @@ export interface RestaurantInfo {
   cuisines: string[];
   totalRatingsString: string;
   sla: { slaString: string };
+  cloudinaryImageId: string;
 }

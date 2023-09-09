@@ -1,6 +1,9 @@
-import { CDN_URL } from '../utils/urls';
+import { FC, ReactNode } from 'react';
+import { CDN_URL } from '../utils/urls.ts';
 
-const RestaurantCardComponent = (props: { restaurantData: any }) => {
+const RestaurantCardComponent: FC<{ restaurantData: any }> = (props: {
+  restaurantData: any;
+}): ReactNode => {
   const { restaurantData } = props;
   const { cloudinaryImageId, name, avgRating, cuisines } = restaurantData.info;
   const deliveryTime = restaurantData.info.sla.slaString;

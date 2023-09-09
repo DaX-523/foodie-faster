@@ -1,13 +1,13 @@
-import { useEffect, useState } from 'react';
+import { ReactNode, useEffect, useState, FC } from 'react';
 import RestaurantCardComponent from './RestaurantCard';
 import { Shimmer } from './Shimmer';
-import { log } from 'console';
 import { Link } from 'react-router-dom';
+import useOnlineStatus from '../custom/useOnlineStatus';
 
-const BodyComponent = () => {
-  const [restaurantList, setRestaurantList] = useState<any[]>([]);
+const BodyComponent: FC = (): ReactNode => {
   const [filteredList, setFilteredList] = useState<any[]>([]);
   const [searchText, setSearchText] = useState('');
+  const [restaurantList, setRestaurantList] = useState<any[]>([]);
 
   const fetchData = async () => {
     const data = await fetch(
@@ -15,15 +15,25 @@ const BodyComponent = () => {
     );
     const json = await data.json();
     setRestaurantList(
-      json.data.cards[2].card.card.gridElements.infoWithStyle.restaurants
+      json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
     setFilteredList(
-      json.data.cards[2].card.card.gridElements.infoWithStyle.restaurants
+      json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
   };
   useEffect(() => {
     fetchData();
   }, []);
+
+  const onlineStatus = useOnlineStatus();
+
+  if (!onlineStatus)
+    return (
+      <h1>
+        Looks like your connection was lost. Please check your internet
+        connection!
+      </h1>
+    );
 
   if (!restaurantList.length) {
     return <Shimmer />;
