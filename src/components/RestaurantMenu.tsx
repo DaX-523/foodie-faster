@@ -22,7 +22,7 @@ const RestaurantMenu: FC = (): ReactNode => {
   } = restaurantInfo!;
 
   return (
-    <div>
+    <div className="flex justify-center items-center">
       <h2>{name}</h2>
       <p>
         {areaName}, {city}

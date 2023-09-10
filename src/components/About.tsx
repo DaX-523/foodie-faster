@@ -28,10 +28,10 @@ class About extends Component<MyProps, MyState> {
   render(): ReactNode {
     const { name, location, avatar_url, html_url } = this.state.userData;
     return (
-      <div>
-        <h1>Team</h1>
-        <h2>{name}</h2>
-        <img className="usr-img" src={avatar_url} alt="avatar" />
+      <div className="flex items-center flex-col gap-3">
+        <h1 className="text-2xl">Team</h1>
+        <h2 className="text-xl font-semibold">{name}</h2>
+        <img className="w-6 rounded-full" src={avatar_url} alt="avatar" />
         <h3>{location}</h3>
         <h4>
           <a href={html_url}>GitHub Link</a>
