@@ -2,22 +2,20 @@ import { useState, useEffect } from 'react';
 import { RestaurantInfo } from '../common/restaurantInfo';
 import { MENU_URL } from '../utils/urls.ts';
 
-const useRestaurantInfo = (resId: string | undefined) => {
-  const [restaurantInfo, setRestaurantInfo] = useState<Partial<RestaurantInfo>>(
-    {}
-  );
+const useRestaurant = (resId: string | undefined) => {
+  const [restaurant, setRestaurant] = useState<any[]>([]);
 
   const fetchData = async () => {
     const data = await fetch(MENU_URL + resId);
     const json = await data.json();
-    setRestaurantInfo(json?.data?.cards[0]?.card?.card?.info);
+    setRestaurant(json?.data?.cards);
   };
 
   useEffect(() => {
     fetchData();
   }, []);
 
-  return restaurantInfo;
+  return restaurant;
 };
 
-export default useRestaurantInfo;
+export default useRestaurant;

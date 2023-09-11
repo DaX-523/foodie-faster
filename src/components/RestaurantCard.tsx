@@ -1,12 +1,17 @@
-import { FC, ReactNode } from 'react';
+import { ComponentElement, FC, ReactNode } from 'react';
 import { CDN_URL } from '../utils/urls.ts';
 
-const RestaurantCardComponent: FC<{ restaurantData: any }> = (props: {
+interface PropsData {
   restaurantData: any;
-}): ReactNode => {
+}
+
+const RestaurantCardComponent: FC<PropsData> = (
+  props: PropsData
+): ReactNode => {
   const { restaurantData } = props;
   const { cloudinaryImageId, name, avgRating, cuisines } = restaurantData.info;
   const deliveryTime = restaurantData.info.sla.slaString;
+
   return (
     <div className="m-4 p-4 w-64 bg-slate-100 hover:bg-slate-200">
       <img
@@ -24,6 +29,17 @@ const RestaurantCardComponent: FC<{ restaurantData: any }> = (props: {
       <h4 className="font-medium">{deliveryTime}</h4>
     </div>
   );
+};
+
+export const withPromotedLabel = (RestaurantCard: FC<PropsData>) => {
+  return (props: any) => {
+    return (
+      <div>
+        <label className="absolute bg-black text-white m-1 p-1">Promoted</label>
+        <RestaurantCard {...props} />
+      </div>
+    );
+  };
 };
 
 export default RestaurantCardComponent;
