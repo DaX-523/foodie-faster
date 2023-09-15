@@ -12,28 +12,33 @@ const HeaderComponent: FC = (): ReactNode => {
   const cartItems = useSelector((store: any) => store.cart.items);
 
   return (
-    <div className="flex justify-between items-center bg-yellow-400">
+    <div
+      className="flex justify-between items-center bg-yellow-400"
+      data-testid="header"
+    >
       <img className="w-40" src={LOGO_URL} alt="logo" />
 
       <ul className="flex justify-between flex-row">
-        <li className="m-2 p-2">{onlineStatus ? 'Online 🟢' : 'Offline 🔴'}</li>
-        <li className="m-2 p-2">
+        <li className="m-2 p-2 font-semibold">
+          {onlineStatus ? 'Online 🟢' : 'Offline 🔴'}
+        </li>
+        <li className="m-2 p-2 font-semibold hover:bg-yellow-500 rounded-md">
           <Link to="/">Home</Link>
         </li>
-        <li className="m-2 p-2">
+        <li className="m-2 p-2 font-semibold hover:bg-yellow-500 rounded-md">
           <Link to="/about">About Us</Link>
         </li>
-        <li className="m-2 p-2">
+        <li className="m-2 p-2 font-semibold hover:bg-yellow-500 rounded-md">
           <Link to="/contact">Contact</Link>
         </li>
-        <li className="m-2 p-2">
+        <li className="m-2 p-2 hover:bg-yellow-500 rounded-lg">
           <Link to="/cart">
             <Badge badgeContent={cartItems.length || '0'} color="error">
               <ShoppingCartOutlinedIcon />
             </Badge>
           </Link>
         </li>
-        <li className="m-2 p-2">
+        <li className="m-2 p-2 hover:bg-yellow-500 rounded-lg">
           <LoginIcon />
         </li>
       </ul>

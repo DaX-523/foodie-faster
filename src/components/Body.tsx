@@ -103,7 +103,7 @@ const BodyComponent: FC = (): ReactNode => {
             setFilteredList(filteredList);
           }}
         >
-          Filter
+          Top Rated Restaurants
         </button>
       </div>
       <div className="flex flex-wrap">
